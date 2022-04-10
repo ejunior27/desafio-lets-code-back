@@ -8,7 +8,7 @@ namespace LetsAuthApi.Controllers
     [Route("{controller}")]
     public class LoginController : ControllerBase
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
 
         public LoginController(IUserService userService)
         {
