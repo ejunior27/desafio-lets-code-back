@@ -2,6 +2,9 @@ using LetsAuth.Domain.Helpers;
 using LetsAuth.Domain.Services;
 using LetsAuth.Domain.Services.Impl;
 using LetsAuth.Infra.Context;
+using LetsBoard.Domain.Helpers;
+using LetsBoard.Infra.Repositories;
+using LetsBoard.Infra.Repositories.Impl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,12 +35,14 @@ namespace LetsAuthApi
         {
             services.AddControllers();
 
-            services.AddDbContext<LetsAuthContext>(opt => opt.UseInMemoryDatabase("LetsBoard"));
+            services.AddDbContext<LetsBoardContext>(opt => opt.UseInMemoryDatabase("LetsBoard"));
 
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<ICardsService, CardService>();
+            services.AddScoped<ICardsService, CardsService>();
+
+            services.AddScoped<ICardsRepository, CardsRepository>();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

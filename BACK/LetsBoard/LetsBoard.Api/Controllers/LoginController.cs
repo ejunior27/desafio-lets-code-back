@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace LetsAuthApi.Controllers
 {
+    [Route("{controller}")]
     public class LoginController : ControllerBase
     {
         private IUserService _userService;
@@ -15,7 +16,7 @@ namespace LetsAuthApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(AuthenticateRequest model)
+        public async Task<IActionResult> Login([FromBody] AuthenticateRequest model)
         {
             var response = await _userService.Authenticate(model);
 

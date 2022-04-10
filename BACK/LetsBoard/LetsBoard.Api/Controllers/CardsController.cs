@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace LetsAuthApi.Controllers
 {
-    [Authorize]
+    [Authorize]    
+    [Route("{controller}")]
     public class CardsController : ControllerBase
     {
         private readonly ICardsService _cardsService;
@@ -32,6 +33,7 @@ namespace LetsAuthApi.Controllers
             return Ok(await _cardsService.CreateAsync(card));
         }
 
+        [Log]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] Card card)
         {
@@ -44,6 +46,7 @@ namespace LetsAuthApi.Controllers
             return Ok(card);
         }
 
+        [Log]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {

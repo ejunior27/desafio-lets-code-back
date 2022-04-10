@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace LetsAuth.Domain.Services.Impl
 {
-    public class CardService : ICardsService
+    public class CardsService : ICardsService
     {
         private readonly ICardsRepository _cardsRepository;
+
+        public CardsService(ICardsRepository cardsRepository)
+        {
+            _cardsRepository = cardsRepository;
+        }
+
         public async Task<IEnumerable<Card>> GetAll()
         {
             return await _cardsRepository.GetAll();

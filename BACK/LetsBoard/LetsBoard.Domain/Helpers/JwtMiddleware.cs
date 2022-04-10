@@ -51,7 +51,7 @@ namespace LetsAuth.Domain.Helpers
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var userName = jwtToken.Claims.First(x => x.Type == "username").Value;
 
-                context.Items["User"] = new { Username = userName};
+                context.Items["User"] = userName;
             }
             catch{}
         }

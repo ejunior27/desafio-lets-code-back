@@ -410,5 +410,5 @@ obj/
 /wwwroot/node_modules
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore,csharp
-BACK/LetsBoard/LetsBoardApi/appsettings.Development.json
-BACK/LetsBoard/LetsBoardApi/Properties/launchSettings.json
+BACK/LetsBoard/LetsBoard.Api/appsettings.Development.json
+BACK/LetsBoard/LetsBoard.Api/Properties/launchSettings.json
