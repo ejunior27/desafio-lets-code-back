@@ -2,6 +2,7 @@
 using LetsBoard.Infra.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace LetsAuth.Domain.Services.Impl
@@ -22,14 +23,15 @@ namespace LetsAuth.Domain.Services.Impl
 
         public async Task<Card> CreateAsync(Card card)
         {
-            //Validator.ValidateObject(card, new ValidationContext(card), true);
+            Validator.ValidateObject(card, new ValidationContext(card), true);
 
-            await _cardsRepository.CreateAsync(card);
-            return card;
+            return await _cardsRepository.CreateAsync(card);            
         }
 
         public async Task<bool> UpdateAsync(Card card)
         {
+            Validator.ValidateObject(card, new ValidationContext(card), true);
+
             return await _cardsRepository.UpdateAsync(card);
         }
 

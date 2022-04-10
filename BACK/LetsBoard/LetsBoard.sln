@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LetsBoard.Infra", "LetsBoar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetsBoard.Models", "LetsBoard.Models\LetsBoard.Models.csproj", "{0875AF76-2C2F-497D-8D1A-8AA436283F1F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{127AD9EE-441E-427E-84F1-CC0698F9BAE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetsBoard.Test", "LetsBoard.Test\LetsBoard.Test.csproj", "{C61AA02D-511F-47EF-8916-FE2D57E70A64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,10 @@ Global
 		{0875AF76-2C2F-497D-8D1A-8AA436283F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0875AF76-2C2F-497D-8D1A-8AA436283F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0875AF76-2C2F-497D-8D1A-8AA436283F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C61AA02D-511F-47EF-8916-FE2D57E70A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61AA02D-511F-47EF-8916-FE2D57E70A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61AA02D-511F-47EF-8916-FE2D57E70A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61AA02D-511F-47EF-8916-FE2D57E70A64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{C37BBBAE-6A99-4E95-86F8-685FB9E7B9F0} = {97721128-831B-4B31-B7C8-A13FCC579600}
 		{6189BE86-223F-410B-82FA-B3F1F93969C6} = {CCD55FC0-0EE4-4A37-9EAA-78F3C75FC609}
 		{0875AF76-2C2F-497D-8D1A-8AA436283F1F} = {97721128-831B-4B31-B7C8-A13FCC579600}
+		{C61AA02D-511F-47EF-8916-FE2D57E70A64} = {127AD9EE-441E-427E-84F1-CC0698F9BAE3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0FE53B2-216B-4E73-A49F-02323D48ED90}
