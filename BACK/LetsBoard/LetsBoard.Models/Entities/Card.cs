@@ -9,10 +9,10 @@ namespace LetsAuth.Models.Entities
     {
         public Guid Id { get; set; }
         [Required]
-        public string Titulo { get; set; }
+        public string Title { get; set; }
         [Required]
-        public string Conteudo { get; set; }
+        public string Content { get; set; }
         [Required]
-        public string Lista { get; set; } 
+        public string List { get; set; } 
     }
 }

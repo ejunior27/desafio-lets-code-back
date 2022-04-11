@@ -21,7 +21,12 @@ namespace LetsAuthApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _cardsService.GetAll());
+            var cardList = await _cardsService.GetAll();
+
+            if(cardList == null)
+                return BadRequest();
+
+            return Ok(cardList);
         }
 
         [HttpPost]
@@ -30,7 +35,12 @@ namespace LetsAuthApi.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return Ok(await _cardsService.CreateAsync(card));
+            var (cardCreated, errorMessage) = await _cardsService.CreateAsync(card);
+
+            if(cardCreated == null)
+                return BadRequest(errorMessage);
+
+            return Ok(cardCreated);
         }
 
         [Log]
@@ -40,10 +50,12 @@ namespace LetsAuthApi.Controllers
             if (!ModelState.IsValid || id != card.Id)
                 return BadRequest(ModelState);
 
-            if(!await _cardsService.UpdateAsync(card))
-                return NotFound();
+            var (result, errorMessage) = await _cardsService.UpdateAsync(card);
 
-            return Ok(card);
+            if (!result)
+                return NotFound(errorMessage);
+
+            return Ok(result);
         }
 
         [Log]
@@ -53,10 +65,10 @@ namespace LetsAuthApi.Controllers
             if(id == null)
                 return BadRequest();
 
-            var cards = await _cardsService.DeleteAsync(id);
+            var (cards, errorMessage) = await _cardsService.DeleteAsync(id);
 
             if (cards == null)
-                return NotFound();
+                return NotFound(errorMessage);
 
             return Ok(cards);
         }

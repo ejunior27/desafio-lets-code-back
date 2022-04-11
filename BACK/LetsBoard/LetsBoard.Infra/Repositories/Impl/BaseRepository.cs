@@ -37,7 +37,7 @@ namespace LetsBoard.Infra.Repositories.Impl
             catch (Exception)
             {
 
-                throw;
+                return null;
             }
         }
 
@@ -51,7 +51,7 @@ namespace LetsBoard.Infra.Repositories.Impl
             }
             catch (Exception)
             {
-                throw;
+                return null;
             }
         }
 
@@ -77,7 +77,7 @@ namespace LetsBoard.Infra.Repositories.Impl
             catch (Exception)
             {
 
-                throw;
+                return null;
             }
         }
 
@@ -100,7 +100,7 @@ namespace LetsBoard.Infra.Repositories.Impl
             }
             catch (Exception)
             {
-                throw;
+                return false;
             }
         }
 
@@ -115,7 +115,7 @@ namespace LetsBoard.Infra.Repositories.Impl
             catch (Exception)
             {
 
-                throw;
+                return null;
             }
         }
 
@@ -128,11 +128,11 @@ namespace LetsBoard.Infra.Repositories.Impl
             }
             catch (Exception)
             {
-                throw;
+                return false;
             }
         }
 
-        public async Task<int> SaveAsync()
+        public async Task<int?> SaveAsync()
         {
             try
             {
@@ -141,7 +141,7 @@ namespace LetsBoard.Infra.Repositories.Impl
             catch (Exception)
             {
 
-                throw;
+                return null;
             }
         }
 
@@ -153,8 +153,7 @@ namespace LetsBoard.Infra.Repositories.Impl
             }
             catch (Exception)
             {
-
-                throw;
+                return null;
             }
         }
 
@@ -167,7 +166,7 @@ namespace LetsBoard.Infra.Repositories.Impl
             catch (Exception)
             {
 
-                throw;
+                return null;
             }
         }
 
@@ -181,7 +180,6 @@ namespace LetsBoard.Infra.Repositories.Impl
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

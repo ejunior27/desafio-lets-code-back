@@ -18,7 +18,7 @@ namespace LetsBoard.Infra.Repositories
 
         Task<TEntity> CreateAsync(TEntity model);
 
-        Task<int> SaveAsync();
+        Task<int?> SaveAsync();
 
         Task<TEntity> GetAsync(params object[] Keys);
 

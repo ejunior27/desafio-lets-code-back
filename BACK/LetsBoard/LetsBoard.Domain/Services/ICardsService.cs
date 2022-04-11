@@ -8,9 +8,9 @@ namespace LetsAuth.Domain.Services
 {
     public interface ICardsService
     {
-        Task<Card> CreateAsync(Card card);
-        Task<IEnumerable<Card>> DeleteAsync(Guid id);
+        Task<(Card, string)> CreateAsync(Card card);
+        Task<(IEnumerable<Card>, string)> DeleteAsync(Guid id);
         Task<IEnumerable<Card>> GetAll();
-        Task<bool> UpdateAsync(Card card);
+        Task<(bool, string)> UpdateAsync(Card card);
     }
 }

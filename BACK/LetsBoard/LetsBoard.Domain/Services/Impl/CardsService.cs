@@ -21,33 +21,58 @@ namespace LetsAuth.Domain.Services.Impl
             return await _cardsRepository.GetAll();
         }
 
-        public async Task<Card> CreateAsync(Card card)
+        public async Task<(Card, string)> CreateAsync(Card card)
         {
-            Validator.ValidateObject(card, new ValidationContext(card), true);
-
-            return await _cardsRepository.CreateAsync(card);            
-        }
-
-        public async Task<bool> UpdateAsync(Card card)
-        {
-            Validator.ValidateObject(card, new ValidationContext(card), true);
-
-            return await _cardsRepository.UpdateAsync(card);
-        }
-
-        public async Task<IEnumerable<Card>> DeleteAsync(Guid id)
-        {
-            var card = await _cardsRepository.GetAsync(id);
-
-            if (card == null)
-                return null;
-
-            if (await _cardsRepository.DeleteAsync(card))
+            try
             {
-                return await _cardsRepository.GetAll();
-            }
+                Validator.ValidateObject(card, new ValidationContext(card), true);
 
-            return null;
+                var cardCreated = await _cardsRepository.CreateAsync(card);
+
+                return (cardCreated, "");
+            }
+            catch (Exception ex)
+            {
+                return (null, ex.Message);
+            }                      
+        }
+
+        public async Task<(bool, string)> UpdateAsync(Card card)
+        {
+            try
+            {
+                Validator.ValidateObject(card, new ValidationContext(card), true);
+
+                var result = await _cardsRepository.UpdateAsync(card);
+
+                return (result, "");
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
+        public async Task<(IEnumerable<Card>, string)> DeleteAsync(Guid id)
+        {
+            try
+            {
+                var card = await _cardsRepository.GetAsync(id);
+
+                if (card == null)
+                    return (null, "Card não encontrado") ;
+
+                if (await _cardsRepository.DeleteAsync(card))
+                {
+                    return (await _cardsRepository.GetAll(), "");
+                }
+
+                return (null, "Erro ao deletar");
+            }
+            catch (Exception ex)
+            {
+                return (null, ex.Message);
+            }
         }
     }
 }
